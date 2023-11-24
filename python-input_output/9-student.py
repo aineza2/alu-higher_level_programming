@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-"""class_to_json"""
+"""Python class describing a student"""
 
 
 class Student:
-    """Contains student data
-    """
 
     def __init__(self, first_name, last_name, age):
         self.first_name = first_name
@@ -12,6 +10,4 @@ class Student:
         self.age = age
 
     def to_json(self):
-        """class_to_json"""
-
         return self.__dict__
