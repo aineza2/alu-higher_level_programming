@@ -1,8 +1,6 @@
 #!/usr/bin/node
-
 function add(a, b) {
-  console.log(a + b);
+  console.log(parseInt(a) + parseInt(b));
 }
 
-const [a, b] = process.argv.slice(2, 4).map((n) => Number(n));
-add(a, b);
+add(process.argv[2], process.argv[3]);

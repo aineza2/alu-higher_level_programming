@@ -1,21 +1,19 @@
 #!/usr/bin/node
+let biggest = 0;
+let i;
+const arrayNumbers = [];
 
-const nums = process.argv.slice(2).map((n) => Number(n));
-
-if (nums.length === 0 || nums.length === 1) {
-  console.log(0);
-} else {
-  let biggestNum = Math.max(nums[0], nums[1]);
-  let secondBiggestNum = Math.min(nums[0], nums[1]);
-
-  for (let i = 2; i < nums.length; i++) {
-    if (nums[i] > biggestNum) {
-      secondBiggestNum = biggestNum;
-      biggestNum = nums[i];
-    } else if (nums[i] > secondBiggestNum) {
-      secondBiggestNum = nums[i];
-    }
+for (i = 2; i < process.argv.length; i++) {
+  if (Number.isNaN(parseInt(process.argv[i])) === false) {
+    arrayNumbers[i - 2] = parseInt(process.argv[i]);
   }
-
-  console.log(secondBiggestNum);
 }
+
+if (arrayNumbers.length > 1) {
+  biggest = Math.max.apply(null, arrayNumbers);
+  i = arrayNumbers.indexOf(biggest);
+  arrayNumbers[i] = -Infinity;
+  biggest = Math.max.apply(null, arrayNumbers);
+}
+
+console.log(biggest);
